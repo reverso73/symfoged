@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Copropriétaire > Détails</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ entity.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Compte actif ?</th>
+                <td>{{ entity.isActive }}</td>
+            </tr>
+            <tr>
+                <th>Membre du CS ?</th>
+                <td>{{ entity.isInCS }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('coproprietaire') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('coproprietaire_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
